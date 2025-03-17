@@ -1,22 +1,12 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			],
-			// estoy almacenando la variale "listcontact"
 			listcontact: []
+			// estoy almacenando la variale "listcontact"
+			
 
 		},
+		// listcontact: []
 
 		actions: {
 
@@ -106,8 +96,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 							console.log(response)
 							if (response.ok) {
 								const store = getStore();
-								const actualizacionContacto = store.listContacts.filter(contact => contact.id !== id);
-								setStore({ listContacts: actualizacionContacto });
+								const actualizacionContacto = store.listcontact.filter(contact => contact.id !== id);
+								setStore({ listcontact: actualizacionContacto });
 								console.log(`Contact with ID ${id} deleted`);
 							} else {
 								console.log("Error deleting contact");
@@ -133,13 +123,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 						})
 						.then((data) => {
 							if (data) {
-								const listacorregida = store.listContacts.map(contact => {
+								const listacorregida = store.listcontact.map(contact => {
 									if (contact.id == id) {
 										contact = data // Estoy remplazando el contacto viejo por el actualizado
 									}
 									return contact
 								})
-								setStore({ listContacts: listacorregida })
+								setStore({ listcontact: listacorregida })
 							}
 						})
 						.catch((error) => console.log(error));
