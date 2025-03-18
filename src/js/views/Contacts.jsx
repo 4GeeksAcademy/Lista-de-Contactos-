@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { Link } from 'react-router-dom'
 import { Context } from "../store/appContext.js";
@@ -10,7 +9,7 @@ const Contacts = () => {
     console.log(store.listcontact)
 
     useEffect(() => {
-        
+        actions.getcontacts
     }, [])
 
     return (

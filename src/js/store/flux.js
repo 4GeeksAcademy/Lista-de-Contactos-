@@ -12,7 +12,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			createagenda: () => {
 				// aqui estoy creando la agenda martes 
-				fetch("https://playground.4geeks.com/contact/agendas/martes", {
+				fetch("https://playground.4geeks.com/contact/agendas/4geeks-user", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",
@@ -34,7 +34,7 @@ const getState = ({ getStore, getActions, setStore }) => {
              //aqui estoy consiguinedo los contactos de la agenda 
 			getcontacts: () => {
 
-				fetch("https://playground.4geeks.com/contact/agendas/martes")
+				fetch("https://playground.4geeks.com/contact/agendas/4geeks-user/contacts")
 					.then((response) => {
 						if (response.status == 404) {
 							getActions().createagenda()
@@ -67,7 +67,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 // estoy creando un usuario dentro del servidor 
 
 				crearusuario: (usuarionuevo) => {
-					fetch("https://playground.4geeks.com/contact/agendas/4geeks-user/martes", {
+					fetch("https://playground.4geeks.com/contact/agendas/4geeks-user/contacts", {
 						method: "POST",
 						headers: {
 							'Content-Type': 'application/json'
@@ -89,7 +89,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				// Estamos elimianando un usuario de la lista mediante el id, utilizo el metodo filter en la la "Listcontacts" para que me devuelva(me filtre) el usuario elimiando.
 
 				borrarcontacto: (id) => {
-					fetch(`https://playground.4geeks.com/contact/agendas/4geeks-user/martes/${id}`, {
+					fetch(`https://playground.4geeks.com/contact/agendas/4geeks-user/contacts/${id}`, {
 						method: "DELETE",
 					})
 						.then((response) => {
@@ -144,25 +144,3 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 export default getState;
 
-// // Use getActions to call a function within a fuction
-			// exampleFunction: () => {
-			// 	getActions().changeColor(0, "green");
-			// },
-			// loadSomeData: () => {
-			// 	/**
-			// 		fetch().then().then(data => setStore({ "foo": data.bar }))
-			// 	*/
-			// },
-			// changeColor: (index, color) => {
-			// 	//get the store
-			// 	const store = getStore();
-
-			// 	//we have to loop the entire demo array to look for the respective index
-			// 	//and change its color
-			// 	const demo = store.demo.map((elm, i) => {
-			// 		if (i === index) elm.background = color;
-			// 		return elm;
-			// 	});
-
-			// 	//reset the global store
-			// 	setStore({ demo: demo });

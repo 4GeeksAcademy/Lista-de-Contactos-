@@ -8,7 +8,7 @@ const CardContact = ({ contact }) => {
 
     const eliminarContacto = () => {
         console.log(contact)
-        actions.deleteContact(contact.id);
+        actions.borrarcontacto(contact.id);
     };
 
     return (

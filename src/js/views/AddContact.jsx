@@ -30,14 +30,16 @@ const AddContact = () => {
          
 
         if (!id) {
-            actions.guardarContacto(payload)
-        } else {
-            actions.editContact(id, payload)
+            actions.crearusuario(payload)
+        } 
+        
+        else {
+            actions.editarcontacto(id, payload)
         }
         alert("Se grabo los datos del contacto");
 
         // Redirigir a la página de contactos después de guardar
-        navigate("/Contacts");
+        navigate("/");
          // Limpiar el formulario si es un nuevo contacto
         setName("");
         setPhone("");
